@@ -13,10 +13,10 @@ void modulo2_task(void *parameter)
 
     while (1)
     {
-        Serial.println("Modulo2: enviando!");
+        //Serial.println("Modulo2: enviando!");
         msg_buffer.valor = random(300);
         modulo1_send(&msg_buffer);
-        vTaskDelay(pdMS_TO_TICKS(2000));
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }
 

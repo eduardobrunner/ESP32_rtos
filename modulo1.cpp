@@ -11,11 +11,11 @@ void modulo1_task(void *parameter)
 
     Serial.println("Modulo 1: Se creo la tarea!!");
 
-    xPeriod = pdMS_TO_TICKS(1000);
+    xPeriod = pdMS_TO_TICKS(4000);
 
     while (1)
     {
-        if (xQueueReceive(msg_queue_toModulo1, (void *)&msg_buffer, portMAX_DELAY) == pdTRUE)
+        if (xQueueReceive(msg_queue_toModulo1, (void *)&msg_buffer, xPeriod) == pdTRUE) //portMAX_DELAY
         {
             Serial.printf("Modulo1: %s %d\n", msg_buffer.msg, msg_buffer.valor);
             
