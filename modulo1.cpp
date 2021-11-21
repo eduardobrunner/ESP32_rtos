@@ -15,12 +15,12 @@ void modulo1_task(void *parameter)
 
     while (1)
     {
-        if (xQueueReceive(msg_queue_toModulo1, (void *)&msg_buffer, xPeriod) == pdTRUE)
+        if (xQueueReceive(msg_queue_toModulo1, (void *)&msg_buffer, portMAX_DELAY) == pdTRUE)
         {
             Serial.printf("Modulo1: %s %d\n", msg_buffer.msg, msg_buffer.valor);
             
             // Print out remaining stack memory (words)
-            Serial.printf("LED: \t\t\t\t\t HWM (words): %d\n", uxTaskGetStackHighWaterMark(NULL));
+            //Serial.printf("LED: \t\t\t\t\t HWM (words): %d\n", uxTaskGetStackHighWaterMark(NULL));
         }
         else
         {
