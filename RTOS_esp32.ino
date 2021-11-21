@@ -11,15 +11,15 @@ void setup()
 
 void loop()
 {
-    data_t msgToModulo;
+    // data_t msgToModulo;
 
-    strcpy(msgToModulo.msg, "CO2 [ppm] :");
-    msgToModulo.valor = 555;
+    // strcpy(msgToModulo.msg, "CO2 [ppm] :");
+    // msgToModulo.valor = 555;
 
     // Serial.println("Enviando msg to Modulo 1");
-    modulo1_send(&msgToModulo);
+    // modulo1_send(&msgToModulo);
 
-    delay(100);
+    // delay(100);
     
     //delay(10000);
     //modulo1_kill();

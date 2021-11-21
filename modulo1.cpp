@@ -18,7 +18,7 @@ void modulo1_task(void *parameter)
         if (xQueueReceive(msg_queue_toModulo1, (void *)&msg_buffer, xPeriod) == pdTRUE) //portMAX_DELAY
         {
             Serial.printf("Modulo1: %s %d\n", msg_buffer.msg, msg_buffer.valor);
-            
+
             // Print out remaining stack memory (words)
             //Serial.printf("LED: \t\t\t\t\t HWM (words): %d\n", uxTaskGetStackHighWaterMark(NULL));
         }
@@ -26,6 +26,8 @@ void modulo1_task(void *parameter)
         {
             Serial.println("Modulo1: No recibi nada wacho!");
         }
+        Serial.println("Task modulo 1 blocked for 2s");
+        delay(2000);
     }
 }
 
@@ -36,7 +38,7 @@ void modulo1_launch()
     xTaskCreatePinnedToCore(      // Use xTaskCreate() in vanilla FreeRTOS
         modulo1_task,             // Function to be called
         "modulo1_task",           // Name of task
-        2000,                    // Stack size (bytes in ESP32, words in FreeRTOS)
+        2000,                     // Stack size (bytes in ESP32, words in FreeRTOS)
         NULL,                     // Parameter to pass
         1,                        // Task priority
         &TaskHandle_modulo1_task, // Task handle
